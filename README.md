@@ -1,3 +1,17 @@
+# React Native: Pexip Example App
+
+This is a project for the Hackathon of the Winter Camp 2024 that includes the following features:
+
+- React Native Example app.
+
+
+The idea is that in the future it could be extended and have a library can used to build React Native applications without a lot of effort. Some of features that we can implement in the future:
+
+- Build all the dependencies in calls in a single React Native library.
+- Implement also support for MEE.
+- Be able to select the media stack between WebRTC and Pulse.
+- Implement more features such a Screen Sharing.
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
