@@ -1,14 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {PexipContextProvider} from './contexts/PexipContext/PexipContext';
-import {Conference} from './components/Conference/Conference';
+import React from 'react'
+import { SafeAreaView } from 'react-native'
+import { PexipContextProvider } from './contexts/PexipContext/PexipContext'
+import { Conference } from './components/Conference/Conference'
 
 function App(): React.JSX.Element {
   return (
@@ -17,7 +10,7 @@ function App(): React.JSX.Element {
         <Conference />
       </PexipContextProvider>
     </SafeAreaView>
-  );
+  )
 }
 
-export default App;
+export default App

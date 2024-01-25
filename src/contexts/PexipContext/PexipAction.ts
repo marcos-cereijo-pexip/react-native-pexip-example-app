@@ -1,9 +1,9 @@
 export enum PexipActionType {
   Connect,
-  Disconnect,
+  Disconnect
 }
 
 export interface PexipAction {
-  type: PexipActionType;
-  body?: any;
+  type: PexipActionType
+  body?: any
 }
