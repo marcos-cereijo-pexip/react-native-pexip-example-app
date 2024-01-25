@@ -1,5 +1,6 @@
 export enum PexipActionType {
   Connect,
+  RemoteStream,
   Disconnect
 }
 

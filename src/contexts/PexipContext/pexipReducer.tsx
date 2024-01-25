@@ -5,10 +5,16 @@ export const pexipReducer = (prevState: PexipState, action: PexipAction): PexipS
   switch (action.type) {
     case PexipActionType.Connect: {
       const localStream = action.body.localStream
-      console.log(localStream)
       return {
         ...prevState,
         localStream
+      }
+    }
+    case PexipActionType.RemoteStream: {
+      const remoteStream = action.body.remoteStream
+      return {
+        ...prevState,
+        remoteStream
       }
     }
     default:

@@ -5,6 +5,7 @@ import { PexipActionType } from './PexipAction'
 import { ConnectionState } from '../../types/ConnectionState'
 import { connect } from './methods/connect'
 import { ConnectionRequest } from '../../types/ConnectionRequest'
+import { MediaStream } from 'react-native-webrtc'
 
 interface ContextType {
   connect: (request: ConnectionRequest) => Promise<void>
@@ -23,10 +24,21 @@ const initialState: PexipState = {
 const PexipContextProvider = (props: any): JSX.Element => {
   const [state, dispatch] = useReducer(pexipReducer, initialState)
 
+  const handleRemoteStream = (remoteStream: MediaStream) => {
+    console.log('handleRemoteStream')
+    console.log(remoteStream)
+    dispatch({
+      type: PexipActionType.RemoteStream,
+      body: {
+        remoteStream
+      }
+    })
+  }
+
   const value = useMemo(
     () => ({
       connect: async (request: ConnectionRequest) => {
-        const localStream = await connect(request)
+        const localStream = await connect({ ...request, ...{ onRemoteStream: handleRemoteStream } })
         dispatch({
           type: PexipActionType.Connect,
           body: {
