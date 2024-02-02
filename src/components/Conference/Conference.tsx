@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { usePexipContext } from '../../contexts/PexipContext/PexipContext'
-import { RTCView } from 'react-native-webrtc'
+import { StyleSheet, View } from 'react-native'
+import { RemoteVideo, SelfView, usePexipContext } from '@pexip/react-native-infinity'
 
 const nodeUrl = 'https://pexipdemo.com'
 const conferenceAlias = 'meet.marcoscereijo'
@@ -17,34 +16,34 @@ export const Conference = () => {
   }, [])
 
   return (
-    <View>
-      <Text>Connecting with the following parameters:</Text>
-      <Text>Node URL: {nodeUrl}</Text>
-      <Text>Conference Alias: {conferenceAlias}</Text>
-      <Text>Display Name: {displayName}</Text>
-      <Text>PIN: ****</Text>
-      <RTCView
-        streamURL={state.localStream?.toURL()}
-        mirror={true}
-        objectFit="cover"
-        zOrder={0}
-        style={styles.selfView}
-      />
-      <RTCView streamURL={state.remoteStream?.toURL()} objectFit="cover" style={styles.remoteView} />
+    <View style={styles.container}>
+      <RemoteVideo mediaStream={state.remoteStream} objectFit="cover" style={styles.selfView} />
+      <SelfView mediaStream={state.localStream} objectFit="cover" style={styles.remoteView} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'green'
+  },
   selfView: {
-    width: 300,
-    height: 300,
+    position: 'absolute',
+    bottom: 16,
+    right: 16,
+    width: 150,
+    height: 250,
     backgroundColor: 'black',
-    marginBottom: 8
+    borderRadius: 8
   },
   remoteView: {
-    width: 300,
-    height: 300,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
     backgroundColor: 'black'
   }
 })

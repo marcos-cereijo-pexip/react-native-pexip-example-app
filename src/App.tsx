@@ -1,15 +1,12 @@
 import React from 'react'
-import { SafeAreaView } from 'react-native'
-import { PexipContextProvider } from './contexts/PexipContext/PexipContext'
+// import { PexipContextProvider } from '@pexip/react-native-infinity'
 import { Conference } from './components/Conference/Conference'
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView>
-      <PexipContextProvider>
-        <Conference />
-      </PexipContextProvider>
-    </SafeAreaView>
+    // <PexipContextProvider>
+    <Conference />
+    // </PexipContextProvider>
   )
 }
 
