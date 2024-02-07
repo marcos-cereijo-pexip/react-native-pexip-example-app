@@ -1,12 +1,13 @@
 import React from 'react'
-// import { PexipContextProvider } from '@pexip/react-native-infinity'
+
 import { Conference } from './components/Conference/Conference'
+import { PexipContextProvider } from './contexts/PexipContext/PexipContext'
 
 function App(): React.JSX.Element {
   return (
-    // <PexipContextProvider>
-    <Conference />
-    // </PexipContextProvider>
+    <PexipContextProvider>
+      <Conference />
+    </PexipContextProvider>
   )
 }
 

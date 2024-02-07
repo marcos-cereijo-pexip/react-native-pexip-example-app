@@ -10,9 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@pexip/react-native-infinity": "https://oauth2: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@github.com/marcos-cereijo-pexip/react-native-infinity.git",
+    "@pexip/infinity-api": "^17.3.0",
     "react": "18.2.0",
-    "react-native": "0.73.2"
+    "react-native": "0.73.2",
+    "react-native-webrtc": "^118.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",

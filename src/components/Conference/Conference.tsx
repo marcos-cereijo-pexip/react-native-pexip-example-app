@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { RemoteVideo, SelfView, usePexipContext } from '@pexip/react-native-infinity'
+import { RTCView } from 'react-native-webrtc'
+import { usePexipContext } from '../../contexts/PexipContext/PexipContext'
 
 const nodeUrl = 'https://pexipdemo.com'
 const conferenceAlias = 'meet.marcoscereijo'
@@ -17,8 +18,8 @@ export const Conference = () => {
 
   return (
     <View style={styles.container}>
-      <RemoteVideo mediaStream={state.remoteStream} objectFit="cover" style={styles.selfView} />
-      <SelfView mediaStream={state.localStream} objectFit="cover" style={styles.remoteView} />
+      <RTCView streamURL={state.remoteStream?.toURL()} objectFit="cover" style={styles.remoteView} />
+      <RTCView mirror={true} streamURL={state.localStream?.toURL()} objectFit="cover" style={styles.selfView} />
     </View>
   )
 }
